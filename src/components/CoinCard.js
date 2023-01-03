@@ -6,37 +6,42 @@ function CoinCard(){
 
     return(
         <Card.Group>
-        <Card>
+         <Card>
           <Card.Content>
-            <Card.Header>Matthew Harris</Card.Header>
-            <Card.Meta>Co-Worker</Card.Meta>
+            <Card.Header content='Coin #1 Name' />
             <Card.Description>
-              Matthew is a pianist living in Nashville.
+             Investment: $xx
             </Card.Description>
           </Card.Content>
-        </Card>
-    
-        <Card>
-          <Card.Content>
-            <Card.Header content='Jake Smith' />
-            <Card.Meta content='Musicians' />
-            <Card.Description content='Jake is a drummer living in New York.' />
+          <Card.Content extra>
+            <Button>Buy/Sell</Button>
           </Card.Content>
         </Card>
     
         <Card>
-          <Card.Content
-            header='Elliot Baker'
-            meta='Friend'
-            description='Elliot is a music producer living in Chicago.'
-          />
+          <Card.Content>
+            <Card.Header content='Coin #1 Name' />
+            <Card.Description>
+             Investment: $xx
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <Button>Buy/Sell</Button>
+          </Card.Content>
         </Card>
     
-        <Card
-          header='Jenny Hess'
-          meta='Friend'
-          description='Jenny is a student studying Media Management at the New School'
-        />
+        <Card>
+          <Card.Content>
+            <Card.Header content='Coin #1 Name' />
+            <Card.Description>
+             Investment: $xx
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <Button>Buy/Sell</Button>
+          </Card.Content>
+        </Card>
+        
       </Card.Group>
     );
 }
