@@ -3,7 +3,7 @@ import { Header } from "semantic-ui-react";
 
 function AppHeader(){
     return(
-        <Header as= 'h1' textAlign='center' dividing='true' size="large"> Mockchain </Header>
+        <Header as= 'h1' textAlign='center' size="large"> Mockchain </Header>
     );
 }
 
