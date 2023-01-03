@@ -13,7 +13,7 @@ function TransactionPage(){
             <GridColumn width={10}>
                 <TransactionForm/>
             </GridColumn>
-            <GridColumn width={6} floated="right">
+            <GridColumn width={6} floated='right'>
                 <AppMenu/>
             </GridColumn>
         </Grid>

@@ -7,10 +7,10 @@ function CashForm(){
         <Header as={'h3'}>Deposit Cash</Header>
         <Form>
             <FormField>
-                <Label>Amount</Label>
+                <b>Current Balance: $xx</b>
                 <input placeholder="Deposit Amount"/>
             </FormField>
-            <b> Cash Balance: $xx</b>
+            <b> New Balance: $xx</b>
             <br/>
             <Button>Fund</Button>
         </Form>
