@@ -5,7 +5,7 @@ import CoinForm from "./CoinForm";
 
 
 function TransactionForm(){
-    const [displayForm, setDisplayForm] = useState(true)
+    const [displayForm, setDisplayForm] = useState(false)
 
   
 

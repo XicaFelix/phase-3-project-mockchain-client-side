@@ -6,7 +6,7 @@ function CoinForm(){
         <Form>
         <p>Current Investment: $xx</p>
         <FormField>
-            <Label>Amount</Label>
+            <label>Transaction Amount</label>
             <input placeholder="Amount"/>
         </FormField>
         <FormField>
