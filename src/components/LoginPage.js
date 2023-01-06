@@ -3,7 +3,7 @@ import {Grid, Image} from 'semantic-ui-react'
 
 import LoginForm from "./LoginForm";
 
-function LoginPage(){
+function LoginPage({onLogin, userData, onUserData, userList}){
 
     return(
         <Grid padded = 'vertically'>
@@ -12,7 +12,7 @@ function LoginPage(){
             </Grid.Column>
             <Grid.Column width={8}>
                 <h2> Login to Mockchain</h2>
-                <LoginForm />
+                <LoginForm onLogin={onLogin} userData={userData} onUserData={onUserData} userList={userList}/>
             </Grid.Column>
         </Grid>
     )

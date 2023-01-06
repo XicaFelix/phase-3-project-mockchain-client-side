@@ -1,62 +1,40 @@
 import React from "react";
 import { Feed, FeedContent } from "semantic-ui-react";
 
-function TransactionLog(){
+function TransactionLog({record}){
 
     return (
         <>
             <Feed>
+
                 <Feed.Event>
+
                     <Feed.Label>
-                        <img src="https://via.placeholder.com/50" alt="placeholder"/>
+                        <img src={record.seller.avatar}/>
                     </Feed.Label>
+
+                    <FeedContent>
+                    {`Seller ${record.seller.name}`}
+                    </FeedContent>
+
+                    <FeedContent>
+                    {`Buyer ${record.user_id}`}
+                    </FeedContent>
+
                     <Feed.Content>
-                        Sample Transaction #
+                      { `Transaction Number: ${record.id}`}
                     </Feed.Content>
+
                     <FeedContent>
-                        Sample Price $
+                    {`Executed ${record.created_at}`}
                     </FeedContent>
+
                     <FeedContent>
-                        Sample Username 
+                    {`Price ${record.price}`}
                     </FeedContent>
-                    <FeedContent>
-                        Sample Coin
-                    </FeedContent>
+
                 </Feed.Event>
-                <Feed.Event>
-                    <Feed.Label>
-                        <img src="https://via.placeholder.com/50" alt="placeholder"/>
-                    </Feed.Label>
-                    <Feed.Content>
-                        Sample Transaction #
-                    </Feed.Content>
-                    <FeedContent>
-                        Sample Price $
-                    </FeedContent>
-                    <FeedContent>
-                        Sample Username 
-                    </FeedContent>
-                    <FeedContent>
-                        Sample Coin
-                    </FeedContent>
-                </Feed.Event>
-                <Feed.Event>
-                    <Feed.Label>
-                        <img src="https://via.placeholder.com/50" alt="placeholder"/>
-                    </Feed.Label>
-                    <Feed.Content>
-                        Sample Transaction #
-                    </Feed.Content>
-                    <FeedContent>
-                        Sample Price $
-                    </FeedContent>
-                    <FeedContent>
-                        Sample Username 
-                    </FeedContent>
-                    <FeedContent>
-                        Sample Coin
-                    </FeedContent>
-                </Feed.Event>
+               
             </Feed>
         </>
     );

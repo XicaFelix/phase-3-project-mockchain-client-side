@@ -29,7 +29,7 @@ function ProfilePage(){
                     </Route>
 
                     <Route path={'/profile/transactions'}>
-                        <TransactionLog/>
+                        {/* <TransactionLog/> */}
                     </Route>
                 </Container>
             </GridColumn>
