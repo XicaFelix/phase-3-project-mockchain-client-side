@@ -46,7 +46,7 @@ console.log(userList);
           <HomePage appData={appData}/>
         </Route>
         <Route path= '/profile'>
-          <ProfilePage userData={userData} appData={appData}/>
+          <ProfilePage userData={userData} appData={appData} userList={userList}/>
         </Route>
         <Route path={'/newtransaction'}>
           <TransactionPage/>
