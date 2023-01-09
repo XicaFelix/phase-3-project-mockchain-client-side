@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Grid, GridColumn, GridRow, Segment } from "semantic-ui-react";
 import AppHeader from "./AppHeader";
 import AppMenu from "./AppMenu";
@@ -8,21 +8,7 @@ import CoinCard from "./CoinCard";
 import CashTab from "./CashTab";
 import TransactionLog from "./TransactionLog";
 
-function ProfilePage({userData, appData, userList}){
-
-    
-    console.log('userList:', userList);
-    const currentUser= userList.find((user)=> user.name === userData.username);
-    console.log('currentUser:', currentUser);
-
-    const currentUserTransac = appData.filter((record)=> record.user_id === currentUser.id)
-    console.log('current user transac:', currentUserTransac)
-
-    const transactionList = currentUserTransac.map((record)=>{
-        return <TransactionLog key={record.id}  record={record}/>
-    })
-
-
+function ProfilePage(){
     return(
         <>
         <AppHeader/>
@@ -39,11 +25,11 @@ function ProfilePage({userData, appData, userList}){
                     </Route>
 
                     <Route path={'/profile/cashavailable'}>
-                        <CashTab currentUser={currentUser}/>
+                        <CashTab/>
                     </Route>
 
                     <Route path={'/profile/transactions'}>
-                        {transactionList}
+                        <TransactionLog/>
                     </Route>
                 </Container>
             </GridColumn>
