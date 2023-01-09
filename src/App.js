@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import AppHeader from "./components/AppHeader";
@@ -8,6 +9,18 @@ import TransactionPage from "./components/TransactionPage";
 
 
 function App() {
+
+  // setting up state to fetch all app data
+  const[appData, setAppData] = useState([]);
+
+  // setting up state for current user & their info
+  const [currentUser, setCurrentUser] = useState([]);
+
+  // fetching all app data
+  useEffect(()=>{
+    fetch('http://localhost:9292/mockchain').then(resp=>resp.json()).then(data=>setAppData(data))
+  }, [])
+  
   return (
     <Switch>
        <Route path= '/home'>
@@ -22,7 +35,7 @@ function App() {
       <Route path= '/'>
         <>
           <AppHeader/>
-          <LoginPage/>
+          <LoginPage appData={appData} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         </>
       </Route>
     </Switch>
