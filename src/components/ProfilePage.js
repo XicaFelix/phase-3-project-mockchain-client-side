@@ -8,10 +8,10 @@ import CoinCard from "./CoinCard";
 import CashTab from "./CashTab";
 import TransactionLog from "./TransactionLog";
 
-function ProfilePage({appData, currentUser}){
+function ProfilePage({appData, currentUser, selectedRecord, setSelectedRecord}){
     console.log('currentUser', currentUser)
     const transactionList = currentUser.coin_transactions.map((record)=>
-        <TransactionLog key={record.id} record={record} appData={appData}/> 
+        <TransactionLog key={record.id} record={record} appData={appData} selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/> 
     )
     return(
         <>

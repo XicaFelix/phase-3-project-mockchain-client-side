@@ -12,6 +12,10 @@ function CoinForm(){
             <input placeholder="Amount"/>
         </FormField>
         <FormField>
+            <label> Buyer </label>
+            <input placeholder='Buyer Name' />
+        </FormField>
+        <FormField>
             <ButtonGroup>
                 <Button>Buy</Button>
                 <Button>Sell</Button>

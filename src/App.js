@@ -16,7 +16,15 @@ function App() {
   // setting up state for current user & their info
   const [currentUser, setCurrentUser] = useState([]);
 
-  //  setting up state for 
+  //  setting up state for selected Transaction
+  const [selectedRecord, setSelectedRecord] = useState({
+    buyer: '',
+    record_id: 0,
+    coin: '',
+    price: 0,
+    currency: '',
+    seller: '',
+  })
 
   // fetching all app data
   useEffect(()=>{
@@ -26,13 +34,13 @@ function App() {
   return (
     <Switch>
        <Route path= '/home'>
-          <HomePage appData={appData} currentUser={currentUser}/>
+          <HomePage appData={appData} currentUser={currentUser} selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/>
         </Route>
         <Route path= '/profile'>
-          <ProfilePage appData={appData} currentUser={currentUser}/>
+          <ProfilePage appData={appData} currentUser={currentUser} selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/>
         </Route>
         <Route path={'/newtransaction'}>
-          <TransactionPage/>
+          <TransactionPage selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/>
         </Route>
       <Route path= '/'>
         <>

@@ -4,7 +4,7 @@ import AppTransactionLog from "./AppTransactionLog";
 import { Grid, GridColumn } from "semantic-ui-react";
 import AppMenu from "./AppMenu";
 
-function HomePage({appData}){
+function HomePage({appData, selectedRecord, setSelectedRecord}){
 
     // setting up state for transactions
     const [transactions, setTransactions] = useState([])
@@ -17,8 +17,10 @@ function HomePage({appData}){
     console.log(transactions)
     console.log(appData)
     const transactionList = transactions.map((record)=>{
-        return <AppTransactionLog key={record.id} record={record} appData={appData}/>
+        return <AppTransactionLog key={record.id} record={record} appData={appData} selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/>
     })
+
+
     return(
         <>
         <AppHeader/>

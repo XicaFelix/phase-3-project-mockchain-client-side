@@ -1,16 +1,32 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Feed, FeedContent } from "semantic-ui-react";
 
-function AppTransactionLog({record, appData}){
+function AppTransactionLog({record, appData, selectedRecord, setSelectedRecord}){
+    const history = useHistory();
     let buyer = appData.find((user)=> user.id === record.user_id)
     let sellerId = buyer.coin_transactions[0].coin.user_id
     let seller = appData.find((user)=> user.id === sellerId)
     console.log('buyer', buyer)
     console.log('seller', seller)
+
+    function handleClick(event){
+        event.preventDefault();
+        setSelectedRecord({...selectedRecord, 
+            buyer: `${buyer.name}`,
+            record_id: record.id,
+            coin: `${record.coin.name}`,
+            price: record.price,
+            currency: `${buyer.currency}`,
+            seller: `${seller.name}`,
+        })
+        console.log('selected record', selectedRecord)
+        history.push('/newtransaction')
+    }
    
 
     return (
-        <>
+        <div onClick={handleClick}>
             <Feed>
                 <Feed.Event>
                     <Feed.Label>
@@ -33,7 +49,7 @@ function AppTransactionLog({record, appData}){
                     </FeedContent>
                 </Feed.Event>
             </Feed>
-        </>
+        </div>
     );
 }
 
