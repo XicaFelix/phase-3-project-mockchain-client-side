@@ -1,24 +1,24 @@
 import {Form, FormField, Button, ButtonGroup, Label} from 'semantic-ui-react'
 
-function CoinForm(){
+function CoinForm({selectedRecord, setSelectedRecord}){
 
     
-
+    console.log('selected record', selectedRecord)
     return(
         <Form>
-        <p>Current Investment: $xx</p>
+        <p>{`Transaction ID # ${selectedRecord.record_id}`}</p>
+        <p>{`Coin: ${selectedRecord.coin.toUpperCase()}`}</p>
+        <p>{`Buyer: ${selectedRecord.buyer}`}</p>
+        <p>{`Seller: ${selectedRecord.seller}`}</p>
         <FormField>
             <label>Transaction Amount</label>
             <input placeholder="Amount"/>
         </FormField>
-        <FormField>
-            <label> Buyer </label>
-            <input placeholder='Buyer Name' />
-        </FormField>
+        <p> {`${selectedRecord.currency}`}</p>
         <FormField>
             <ButtonGroup>
-                <Button>Buy</Button>
-                <Button>Sell</Button>
+                <Button>Execute</Button>
+                <Button>Cancel</Button>
             </ButtonGroup>
         </FormField>
     </Form>

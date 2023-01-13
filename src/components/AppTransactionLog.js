@@ -15,12 +15,11 @@ function AppTransactionLog({record, appData, selectedRecord, setSelectedRecord})
         setSelectedRecord({...selectedRecord, 
             buyer: `${buyer.name}`,
             record_id: record.id,
-            coin: `${record.coin.name}`,
+            coin: `${buyer.coin_transactions[0].coin.name}`,
             price: record.price,
             currency: `${buyer.currency}`,
             seller: `${seller.name}`,
         })
-        console.log('selected record', selectedRecord)
         history.push('/newtransaction')
     }
    
