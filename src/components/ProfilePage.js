@@ -8,7 +8,11 @@ import CoinCard from "./CoinCard";
 import CashTab from "./CashTab";
 import TransactionLog from "./TransactionLog";
 
-function ProfilePage(){
+function ProfilePage({appData, currentUser}){
+    console.log('currentUser', currentUser)
+    const transactionList = currentUser.coin_transactions.map((record)=>
+        <TransactionLog key={record.id} record={record} appData={appData}/> 
+    )
     return(
         <>
         <AppHeader/>
@@ -29,7 +33,7 @@ function ProfilePage(){
                     </Route>
 
                     <Route path={'/profile/transactions'}>
-                        <TransactionLog/>
+                       {transactionList}
                     </Route>
                 </Container>
             </GridColumn>

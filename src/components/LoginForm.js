@@ -31,6 +31,7 @@ function LoginForm({appData, currentUser, setCurrentUser}){
         if (isRealUser) {
             if (isRealPassword) {
                 setLoginState(true)
+                setCurrentUser(isRealUser)
                 history.push('/home')
             }else {
                 setRealLogin('Incorrect Password')
@@ -42,6 +43,7 @@ function LoginForm({appData, currentUser, setCurrentUser}){
         }
       }
 
+      console.log('current user', currentUser)
     return(
         <>
              <Form>

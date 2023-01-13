@@ -2,6 +2,8 @@ import {Form, FormField, Button, ButtonGroup, Label} from 'semantic-ui-react'
 
 function CoinForm(){
 
+    
+
     return(
         <Form>
         <p>Current Investment: $xx</p>

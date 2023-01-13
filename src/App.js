@@ -16,6 +16,8 @@ function App() {
   // setting up state for current user & their info
   const [currentUser, setCurrentUser] = useState([]);
 
+  //  setting up state for 
+
   // fetching all app data
   useEffect(()=>{
     fetch('http://localhost:9292/mockchain').then(resp=>resp.json()).then(data=>setAppData(data))
@@ -24,10 +26,10 @@ function App() {
   return (
     <Switch>
        <Route path= '/home'>
-          <HomePage/>
+          <HomePage appData={appData} currentUser={currentUser}/>
         </Route>
         <Route path= '/profile'>
-          <ProfilePage/>
+          <ProfilePage appData={appData} currentUser={currentUser}/>
         </Route>
         <Route path={'/newtransaction'}>
           <TransactionPage/>
