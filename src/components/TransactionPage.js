@@ -4,14 +4,14 @@ import AppMenu from "./AppMenu";
 import TransactionForm from "./TransactionForm";
 
 
-function TransactionPage({selectedRecord, setSelectedRecord}){
+function TransactionPage({selectedRecord, setSelectedRecord, appData}){
 
     return(
         <>
         <AppHeader/>
         <Grid>
             <GridColumn width={10}>
-                <TransactionForm selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/>
+                <TransactionForm selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord} appData={appData}/>
             </GridColumn>
             <GridColumn width={6} floated='right'>
                 <AppMenu/>

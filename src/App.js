@@ -40,7 +40,7 @@ function App() {
           <ProfilePage appData={appData} currentUser={currentUser} selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/>
         </Route>
         <Route path={'/newtransaction'}>
-          <TransactionPage selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/>
+          <TransactionPage selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord} appData={appData}/>
         </Route>
       <Route path= '/'>
         <>
