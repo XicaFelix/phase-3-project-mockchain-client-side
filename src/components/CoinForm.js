@@ -1,8 +1,10 @@
+import { useHistory } from 'react-router-dom';
 import {Form, FormField, Button, ButtonGroup} from 'semantic-ui-react'
 
-function CoinForm({selectedRecord, setSelectedRecord}){
+function CoinForm({selectedRecord, setSelectedRecord, appData}){
+    const history = useHistory();
 
-    console.log('selected record', selectedRecord)
+    // console.log('selected record', selectedRecord)
 
     function handleChange(event){
         setSelectedRecord({
@@ -14,17 +16,51 @@ function CoinForm({selectedRecord, setSelectedRecord}){
         })
     }
 
+    function handleUpdate(event){
+        event.preventDefault();
+        const buyer = appData.find((user)=> user.name === selectedRecord.buyer)
+        // console.log('buyer', buyer)
+
+        const dataToPatch = {
+            price: selectedRecord.price,
+            user_id: buyer.id
+        }
+        // console.log('dataToPatch', dataToPatch)
+
+        fetch(`http://localhost:9292/mockchain/transactions/${selectedRecord.record_id}`,{
+            method: "PATCH",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify(dataToPatch),
+        }
+        ).then(resp=>resp.json())
+        .then(data=> console.log('patch response', data))
+
+        history.push('/home')
+    }
+
+    function handleCancel(event){
+        event.preventDefault();
+        
+        fetch(`http://localhost:9292/mockchain/transactions/${selectedRecord.record_id}`,{
+            method: "DELETE",
+        })
+        .then(resp=> resp.json())
+        .then(data=> console.log('deleted record', data));
+
+        history.push('/home')
+    }
+
     return(
         <Form>
         <p>{`Transaction ID # ${selectedRecord.record_id}`}</p>
         <p>{`Seller: ${selectedRecord.seller}`}</p>
         <FormField>
             <label> Buyer: </label>
-            <input placeholder='Buyer name' name='buyer' value={selectedRecord.buyer}/>
+            <input placeholder='Buyer name' name='buyer' value={selectedRecord.buyer} onChange={handleChange}/>
         </FormField>
         <FormField>
             <label>Coin:</label>
-            <input placeholder='Coin' name='coin' value={selectedRecord.coin.toUpperCase()}/>
+            <input placeholder='Coin' name='coin' value={selectedRecord.coin} onChange={handleChange}/>
         </FormField>
         <FormField>
             <label>Transaction Amount</label>
@@ -34,7 +70,8 @@ function CoinForm({selectedRecord, setSelectedRecord}){
         <FormField>
             <ButtonGroup>
                 <Button>Execute</Button>
-                <Button>Cancel</Button>
+                <Button onClick={handleUpdate}>Update</Button>
+                <Button onClick={handleCancel}>Cancel</Button>
             </ButtonGroup>
         </FormField>
     </Form>

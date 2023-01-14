@@ -18,15 +18,15 @@ function LoginForm({appData, currentUser, setCurrentUser}){
             [event.target.name] : event.target.value
         })
       }
-      console.log('loginInfo', loginInfo)
+    //   console.log('loginInfo', loginInfo)
       console.log(appData)
 
       function handleSubmit(event){
         event.preventDefault();
         let isRealUser = appData.find((user)=> user.name === loginInfo.username);
-        console.log('isRealUser', isRealUser);
+        // console.log('isRealUser', isRealUser);
         let isRealPassword = appData.find((user)=> user.password === loginInfo.password);
-        console.log('isRealPassword', isRealPassword);
+        // console.log('isRealPassword', isRealPassword);
 
         if (isRealUser) {
             if (isRealPassword) {
