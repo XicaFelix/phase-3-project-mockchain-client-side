@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Table, TableRow, TableCell, TableHeader, TableHeaderCell, Image } from "semantic-ui-react";
 
-function TransactionLog({record, appData, selectedRecord, setSelectedRecord}){
+function TransactionLog({record, appData, selectedRecord, setSelectedRecord, setDisplayForm}){
     const history = useHistory();
     console.log('record', record)
     let sellerId = record.coin.user_id
@@ -22,6 +22,7 @@ function TransactionLog({record, appData, selectedRecord, setSelectedRecord}){
             seller: `${seller.name}`,
         })
         console.log('selected record', selectedRecord)
+        setDisplayForm(false)
         history.push('/newtransaction')
     }
 
