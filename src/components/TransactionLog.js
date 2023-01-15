@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Feed, FeedContent } from "semantic-ui-react";
+import { Table, TableRow, TableCell, TableHeader, TableHeaderCell, Image } from "semantic-ui-react";
 
 function TransactionLog({record, appData, selectedRecord, setSelectedRecord}){
     const history = useHistory();
@@ -26,30 +26,49 @@ function TransactionLog({record, appData, selectedRecord, setSelectedRecord}){
     }
 
     return (
-        <div onClick={handleClick}>
-            <Feed>
-                <Feed.Event>
-                    <Feed.Label>
-                        <img src={buyer.avatar} alt={`User ${buyer.id} profile`}/>
-                    </Feed.Label>
-                    <FeedContent>
-                        {`${buyer.name}`}
-                    </FeedContent>
-                    <Feed.Content>
-                        {`Transaction # ${record.id}`}
-                    </Feed.Content>
-                    <FeedContent>
-                        {`${record.coin.name.toUpperCase()}`}
-                    </FeedContent>
-                    <FeedContent>
-                        {`${record.price}  ${buyer.currency}`}
-                    </FeedContent>
-                    <FeedContent>
-                        {`${seller.name}`}
-                    </FeedContent>
-                </Feed.Event>
-            </Feed>
-        </div>
+        <Table inverted color="blue"> 
+              <TableHeader>
+                        <TableRow>
+                            <TableHeaderCell>Seller</TableHeaderCell>
+                            <TableHeaderCell>Transaction #</TableHeaderCell>
+                            <TableHeaderCell>Coin</TableHeaderCell>
+                            <TableHeaderCell>Price</TableHeaderCell>
+                            <TableHeaderCell>Buyer</TableHeaderCell>
+                            <TableHeaderCell> Initiated</TableHeaderCell>
+                            <TableHeaderCell>Executed</TableHeaderCell>
+                        </TableRow>
+                    </TableHeader>
+              <TableRow onClick={handleClick}>
+                <TableCell> 
+                    <span> 
+                        <Image src={buyer.avatar} alt={`User ${buyer.id} profile`} avatar/>
+                         {`${buyer.name}`}
+                    </span> 
+                </TableCell>
+                <TableCell>
+                {` ${record.id}`}
+                </TableCell>
+                <TableCell>
+                {`${buyer.coin_transactions[0].coin.name.toUpperCase()}`}
+                </TableCell>
+                <TableCell>
+                {`${record.price}  ${buyer.currency}`}
+                </TableCell>
+                <TableCell>
+                <span> 
+                    <Image src={seller.avatar} alt={`User ${seller.id} profile`} avatar />
+                    {`${seller.name}`} 
+                    </span> 
+                </TableCell>
+                <TableCell>
+                    {`${record.created_at}`}
+                </TableCell>
+                <TableCell>
+                    {`${record.updated_at}`}
+                </TableCell>
+                
+            </TableRow>
+            </Table>
     );
 }
 

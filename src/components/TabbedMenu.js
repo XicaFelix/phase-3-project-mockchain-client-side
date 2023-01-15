@@ -11,7 +11,7 @@ function TabbedMenu(){
     return(
         // <Menu items={menuItems}/>
 
-        <Menu>
+        <Menu inverted color="black">
             <Link to={'/profile/cashavailable'}>
             <MenuItem name="cashAvailable">Cash Available</MenuItem>
             </Link>

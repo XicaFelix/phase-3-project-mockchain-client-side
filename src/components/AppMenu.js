@@ -5,7 +5,7 @@ import {Menu, Header, MenuItem, Button} from 'semantic-ui-react';
 function AppMenu(){
 
     return(
-        <Menu vertical>
+        <Menu vertical inverted color="black">
             <MenuItem name="Menu">Menu</MenuItem>
 
             <Link to={'/home'}>
