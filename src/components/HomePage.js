@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AppHeader from "./AppHeader";
 import AppTransactionLog from "./AppTransactionLog";
-import { Grid, GridColumn } from "semantic-ui-react";
+import { Grid, GridColumn, Table, TableBody, TableHeader, TableHeaderCell, TableRow } from "semantic-ui-react";
 import AppMenu from "./AppMenu";
 
 function HomePage({appData, selectedRecord, setSelectedRecord}){
@@ -26,7 +26,24 @@ function HomePage({appData, selectedRecord, setSelectedRecord}){
         <AppHeader/>
         <Grid>
             <GridColumn stretched width={12}>
-                {transactionList}
+                <Table celled selectable color="blue" inverted>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHeaderCell>Seller</TableHeaderCell>
+                            <TableHeaderCell>Transaction #</TableHeaderCell>
+                            <TableHeaderCell>Coin</TableHeaderCell>
+                            <TableHeaderCell>Price</TableHeaderCell>
+                            <TableHeaderCell>Buyer</TableHeaderCell>
+                            <TableHeaderCell> Initiated</TableHeaderCell>
+                            <TableHeaderCell>Executed</TableHeaderCell>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                    {transactionList}
+                    </TableBody>
+
+                </Table>
+                
             </GridColumn>
             <GridColumn width={4} floated='right'>
                 <AppMenu/>

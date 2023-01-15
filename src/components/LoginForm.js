@@ -48,17 +48,17 @@ function LoginForm({appData, currentUser, setCurrentUser}){
         <>
              <Form>
                 <Form.Field>
-                    <label>Username</label>
+                    <label style={{color: 'whitesmoke'}}>Username</label>
                     <input placeholder="Username" name="username" value={loginInfo.username} onChange={handleChange}/>
                 </Form.Field>
                 <Form.Field>
-                    <label>Password</label>
+                    <label style={{color: 'whitesmoke'}}>Password</label>
                     <input placeholder="Password" name='password' value={loginInfo.password} onChange={handleChange}/>
                 </Form.Field>
-                <Button type="submit" onClick={handleSubmit}>Log-in</Button>
+                <Button type="submit" onClick={handleSubmit} color= 'teal'>Log-in</Button>
             </Form>
             <br/>
-            {loginState ? <p></p> : <b>{`${realLogin}`}</b>}
+            {loginState ? <p></p> : <b style={{color: 'whitesmoke'}}>{`${realLogin}`}</b>}
         </>
        
     )
