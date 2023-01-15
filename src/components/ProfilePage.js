@@ -8,11 +8,11 @@ import CoinCard from "./CoinCard";
 import CashTab from "./CashTab";
 import TransactionLog from "./TransactionLog";
 
-function ProfilePage({appData, currentUser, selectedRecord, setSelectedRecord}){
+function ProfilePage({appData, currentUser, selectedRecord, setSelectedRecord, setDisplayForm}){
     console.log('currentUser', currentUser)
 
     const transactionList = currentUser.coin_transactions.map((record)=>
-        <TransactionLog key={record.id} record={record} appData={appData} selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/> 
+        <TransactionLog key={record.id} record={record} appData={appData} selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord} setDisplayForm={setDisplayForm}/> 
     )
 
     const userCoins = currentUser.coin_transactions.map((record)=>{
@@ -35,7 +35,7 @@ function ProfilePage({appData, currentUser, selectedRecord, setSelectedRecord}){
                     </Route>
 
                     <Route path={'/profile/cashavailable'}>
-                        <CashTab/>
+                        <CashTab currentUser={currentUser} setDisplayForm={setDisplayForm}/>
                     </Route>
 
                     <Route path={'/profile/transactions'}>

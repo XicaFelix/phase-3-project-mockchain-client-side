@@ -1,17 +1,13 @@
-
-import { useState } from "react";
 import CashForm from "./CashForm";
 import CoinForm from "./CoinForm";
 
 
-function TransactionForm({selectedRecord, setSelectedRecord, appData, currentUser}){
-    const [displayForm, setDisplayForm] = useState(false)
-
-  
+function TransactionForm({selectedRecord, setSelectedRecord, appData,setCurrentUser, currentUser, displayForm}){
+  console.log('displayform', displayForm)
 
     return(
         <>
-      {displayForm ? <CashForm/> : <CoinForm selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord} appData={appData} currentUser={currentUser}/>}
+      {displayForm ? <CashForm setCurrentUser={setCurrentUser} currentUser= {currentUser}/> : <CoinForm selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord} appData={appData} currentUser={currentUser}/>}
       </>
     );
 }
