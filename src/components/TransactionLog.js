@@ -26,7 +26,7 @@ function TransactionLog({record, appData, selectedRecord, setSelectedRecord}){
     }
 
     return (
-        <Table inverted color="blue"> 
+        <Table inverted color="black"> 
               <TableHeader>
                         <TableRow>
                             <TableHeaderCell>Seller</TableHeaderCell>

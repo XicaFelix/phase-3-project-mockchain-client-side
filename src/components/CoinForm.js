@@ -74,7 +74,7 @@ function CoinForm({selectedRecord, setSelectedRecord, appData, currentUser}){
     }
 
     return(
-        <Form>
+        <Form inverted>
         <p>{`Transaction ID # ${selectedRecord.record_id}`}</p>
         <p>{`Seller: ${selectedRecord.seller}`}</p>
         <FormField>
@@ -89,7 +89,7 @@ function CoinForm({selectedRecord, setSelectedRecord, appData, currentUser}){
             <label>Transaction Amount</label>
             <input placeholder="Amount" name='price' onChange={handleChange} value={selectedRecord.price}/>
         </FormField>
-        <p> {`${selectedRecord.currency}`}</p>
+        <p> {`Currency: ${selectedRecord.currency}`}</p>
         <FormField>
             <ButtonGroup>
                 <Button onClick={handleExecute}>Execute</Button>

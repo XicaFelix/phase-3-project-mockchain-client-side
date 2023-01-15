@@ -28,7 +28,7 @@ function AppMenu(){
 
                 <Link to={'/'}>
                     <MenuItem name="Login/out">
-                        <Button>Login/out</Button>
+                        <Button>Logout</Button>
                     </MenuItem>
                 </Link>
 

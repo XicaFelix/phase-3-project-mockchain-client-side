@@ -31,6 +31,7 @@ function ProfilePage({appData, currentUser, selectedRecord, setSelectedRecord, s
                 <Container>
 
                     <Route path={'/profile/coins'}>
+                        <br/>
                         {userCoins}
                     </Route>
 
@@ -39,6 +40,7 @@ function ProfilePage({appData, currentUser, selectedRecord, setSelectedRecord, s
                     </Route>
 
                     <Route path={'/profile/transactions'}>
+                        <br/>
                        {transactionList}
                     </Route>
                 </Container>

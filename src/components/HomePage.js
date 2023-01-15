@@ -4,7 +4,7 @@ import AppTransactionLog from "./AppTransactionLog";
 import { Grid, GridColumn, Table, TableBody, TableHeader, TableHeaderCell, TableRow } from "semantic-ui-react";
 import AppMenu from "./AppMenu";
 
-function HomePage({appData, selectedRecord, setSelectedRecord}){
+function HomePage({appData, selectedRecord, setSelectedRecord, setDisplayForm}){
 
     // setting up state for transactions
     const [transactions, setTransactions] = useState([])
@@ -17,7 +17,7 @@ function HomePage({appData, selectedRecord, setSelectedRecord}){
     console.log(transactions)
     console.log(appData)
     const transactionList = transactions.map((record)=>{
-        return <AppTransactionLog key={record.id} record={record} appData={appData} selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/>
+        return <AppTransactionLog key={record.id} record={record} appData={appData} selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord} setDisplayForm={setDisplayForm}/>
     })
 
 
@@ -26,7 +26,7 @@ function HomePage({appData, selectedRecord, setSelectedRecord}){
         <AppHeader/>
         <Grid>
             <GridColumn stretched width={12}>
-                <Table celled selectable color="blue" inverted>
+                <Table celled selectable color="black" inverted>
                     <TableHeader>
                         <TableRow>
                             <TableHeaderCell>Seller</TableHeaderCell>

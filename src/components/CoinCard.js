@@ -21,7 +21,7 @@ function CoinCard({coin, currentUser, selectedRecord, setSelectedRecord}){
 
     return(
         <Card.Group>
-         <Card>
+         <Card color="green">
           <Card.Content>
             <Card.Header content={coin.name.toUpperCase()} />
             <Card.Description>

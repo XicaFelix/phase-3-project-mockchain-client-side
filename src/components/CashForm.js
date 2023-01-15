@@ -42,7 +42,7 @@ function CashForm({currentUser, setCurrentUser}){
     return(
         <>
         <Header as={'h3'}>Deposit Cash</Header>
-        <Form>
+        <Form inverted>
             <FormField>
                 <b>{`Current Balance: ${currentUser.cash} ${currentUser.currency} `}</b>
                 <input placeholder="Deposit Amount" onChange={handleChange} value={userUpdate.cash}/>

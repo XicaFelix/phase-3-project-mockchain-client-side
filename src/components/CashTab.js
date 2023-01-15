@@ -11,7 +11,7 @@ function CashTab({currentUser, setDisplayForm}){
     }
 
     return(
-            <Segment inverted color="blue">
+            <Segment inverted color="black">
                 <Header as='h3'> Available Cash</Header>
                 <p>{`Currency: ${currentUser.currency}`}</p>
                 <p>{` Balance: ${currentUser.cash}`}</p>

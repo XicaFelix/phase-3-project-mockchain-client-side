@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Feed, FeedContent, Image, Table, TableCell, TableRow } from "semantic-ui-react";
 
-function AppTransactionLog({record, appData, selectedRecord, setSelectedRecord}){
+function AppTransactionLog({record, appData, selectedRecord, setSelectedRecord, setDisplayForm}){
     const history = useHistory();
     let buyer = appData.find((user)=> user.id === record.user_id)
     let sellerId = buyer.coin_transactions[0].coin.user_id
@@ -20,6 +20,7 @@ function AppTransactionLog({record, appData, selectedRecord, setSelectedRecord})
             currency: `${buyer.currency}`,
             seller: `${seller.name}`,
         })
+        setDisplayForm(false);
         history.push('/newtransaction')
     }
    
