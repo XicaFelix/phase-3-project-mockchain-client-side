@@ -7,8 +7,8 @@ function AppTransactionLog({record, appData, selectedRecord, setSelectedRecord})
     let buyer = appData.find((user)=> user.id === record.user_id)
     let sellerId = buyer.coin_transactions[0].coin.user_id
     let seller = appData.find((user)=> user.id === sellerId)
-    console.log('buyer', buyer)
-    console.log('seller', seller)
+    // console.log('buyer', buyer)
+    // console.log('seller', seller)
 
     function handleClick(event){
         event.preventDefault();

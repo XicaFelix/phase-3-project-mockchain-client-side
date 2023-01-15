@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import {Form, FormField, Button, ButtonGroup} from 'semantic-ui-react'
 
-function CoinForm({selectedRecord, setSelectedRecord, appData}){
+function CoinForm({selectedRecord, setSelectedRecord, appData, currentUser}){
     const history = useHistory();
 
     // console.log('selected record', selectedRecord)
@@ -50,6 +50,29 @@ function CoinForm({selectedRecord, setSelectedRecord, appData}){
         history.push('/home')
     }
 
+    function handleExecute(event){
+        event.preventDefault();
+        const buyer = appData.find((user)=> user.name === selectedRecord.buyer);
+        const coin = currentUser.coin_transactions.find((record)=> record.coin.name === selectedRecord.coin).coin
+        // console.log('coin', coin)
+
+
+        const dataToPost = {
+            price: selectedRecord.price,
+            coin_id: coin.id,
+            user_id: buyer.id
+        }
+
+        fetch(`http://localhost:9292/mockchain/transactions/new`,{
+            method: "POST",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify(dataToPost)
+        })
+        .then(resp=>resp.json())
+        .then(data=>console.log('post response', data))
+        history.push('/home')
+    }
+
     return(
         <Form>
         <p>{`Transaction ID # ${selectedRecord.record_id}`}</p>
@@ -69,7 +92,7 @@ function CoinForm({selectedRecord, setSelectedRecord, appData}){
         <p> {`${selectedRecord.currency}`}</p>
         <FormField>
             <ButtonGroup>
-                <Button>Execute</Button>
+                <Button onClick={handleExecute}>Execute</Button>
                 <Button onClick={handleUpdate}>Update</Button>
                 <Button onClick={handleCancel}>Cancel</Button>
             </ButtonGroup>

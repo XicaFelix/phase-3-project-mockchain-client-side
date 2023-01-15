@@ -4,14 +4,14 @@ import CashForm from "./CashForm";
 import CoinForm from "./CoinForm";
 
 
-function TransactionForm({selectedRecord, setSelectedRecord, appData}){
+function TransactionForm({selectedRecord, setSelectedRecord, appData, currentUser}){
     const [displayForm, setDisplayForm] = useState(false)
 
   
 
     return(
         <>
-      {displayForm ? <CashForm/> : <CoinForm selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord} appData={appData}/>}
+      {displayForm ? <CashForm/> : <CoinForm selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord} appData={appData} currentUser={currentUser}/>}
       </>
     );
 }

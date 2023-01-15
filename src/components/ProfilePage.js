@@ -10,9 +10,15 @@ import TransactionLog from "./TransactionLog";
 
 function ProfilePage({appData, currentUser, selectedRecord, setSelectedRecord}){
     console.log('currentUser', currentUser)
+
     const transactionList = currentUser.coin_transactions.map((record)=>
         <TransactionLog key={record.id} record={record} appData={appData} selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/> 
     )
+
+    const userCoins = currentUser.coin_transactions.map((record)=>{
+        let coin = record.coin;
+        return <CoinCard key={coin.id} coin={coin} currentUser={currentUser} selectedRecord={selectedRecord} setSelectedRecord={setSelectedRecord}/>
+    })
     return(
         <>
         <AppHeader/>
@@ -23,9 +29,9 @@ function ProfilePage({appData, currentUser, selectedRecord, setSelectedRecord}){
                 </Container>
 
                 <Container>
-                    Conditionally render coins, transactions, or cash
+
                     <Route path={'/profile/coins'}>
-                        <CoinCard/>
+                        {userCoins}
                     </Route>
 
                     <Route path={'/profile/cashavailable'}>
