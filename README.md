@@ -26,18 +26,3 @@ In the future I would like to improve styling, perhaps by creating a custom them
 3. Use 'npm start' to run the front-end on a different locallhost port
 4. Code!
 
-## Helpful Tips
--  You can find login-info in sqlite database under the users table or here:
-
-| id  | Username        | Password   |
-|-----|-----------------|------------|
-| 186 | martin          | FMrqicvThG |
-| 187 | leia            | RUNgGJMVV  |
-| 188 | meghan          | xzUiqCmty  |
-| 189 | art             | JvCslmqijV |
-| 190 | melita          | dpFAlCxNk  |
-| 191 | dwain           | LTiJNJgwH  |
-| 192 | lindsey.sawayn  | kzSlpCbCh  |
-| 193 | elliot.collier  | RVpAlCuM   |
-| 194 | earle           | bdnciTPsc  |
-| 195 | shayne.anderson | tzmPVKiJV  |
